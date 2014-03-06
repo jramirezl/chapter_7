@@ -63,6 +63,19 @@ describe "User pages" do
       it { should have_content('error') }
     end
 
+
+    describe "after submission no password" do
+      before do
+        fill_in "Name",         with: "Example User"
+        fill_in "Email",        with: "user@example.com"
+        fill_in "Password",     with: "foobar"
+      end
+      before { click_button submit }
+
+      it { should have_selector('title', text: 'Sign up') }
+      it { should have_content('error') }
+    end
+
   end
 
 end
