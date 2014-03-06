@@ -48,14 +48,21 @@ describe "Static pages" do
     click_link "About"
     page.should have_selector 'title', text: full_title('About Us')
     click_link "Help"
-    page.should # fill in
+    page.should have_selector 'title', text: full_title('Help')
     click_link "Contact"
-    page.should # fill in
+    page.should have_selector 'title', text: full_title('Contact')
     click_link "Home"
     click_link "Sign up now!"
-    page.should # fill in
+    page.should have_selector 'title', text: full_title('Sign up')
     click_link "sample app"
-    page.should # fill in
+    page.should have_selector 'title', text: full_title('')
+  end
+
+  describe "signin" do
+    before { visit construction_path}
+
+    it { should have_selector('h3',    text: "Page not implemented yet") }
+    it { should have_selector('title', text: full_title('Sign in')) }
   end
 
 end

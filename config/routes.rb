@@ -11,6 +11,7 @@ Chapter3::Application.routes.draw do
   match '/home' => 'static_pages#home'
   match '/' => 'static_pages#home'
 
+  match '/construction',  to: 'construction#not_implemented'
 
 
   # The priority is based upon order of creation:
